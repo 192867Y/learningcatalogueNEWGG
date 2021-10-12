@@ -16,7 +16,8 @@ import {
 
   const style = {
 
-    backgroundColor: "#D9E3F0"
+    backgroundColor: "#D9E3F0",
+    textAlign: 'center'
 
   };
 
@@ -29,6 +30,12 @@ const style2 = {
     color: '#fff',
     textAlign: 'center',
     fontSize: 14,
+  };
+
+const style3 = {
+  textAlign: 'left',
+  justifyContent: "left"
+
   };
 
 const ButtonContainer = styled.div`
@@ -83,7 +90,7 @@ const Productnew = props => {
           <hr style={style} />
       </div>
 
-      <p> 
+      <p style = {style3}> 
       <b> Course Code: </b> {props.product.courseCode} <br /><br />
       <b> Clinical/Non-Clinical: </b> {props.product.clinicalType} <br /><br />
       <b> Course Overview: </b> {props.product.courseOverview} <br /><br />
