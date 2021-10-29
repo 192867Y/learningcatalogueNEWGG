@@ -98,7 +98,7 @@ const Productnew = props => {
       <b> Target Audience: </b> {props.product.audience} <br /><br />
       <b> Modality: </b> {props.product.modality} <br /><br />
       <b> Duration: </b> {props.product.duration} <br /><br />
-      <b> Course Fee: </b> ${props.product.price} <br /><br />
+      <b> Course Fee: </b> ${props.product.price} <br />
       </p>
 
 

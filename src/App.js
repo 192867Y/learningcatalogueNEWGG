@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './style/customStyle.css';
 import SearchBar from './components/NavBar/searchBar';
@@ -16,6 +15,7 @@ import ProductContext from './contexts/ProductContext';
 import CardContext from './contexts/CartContext';
 
 import ProductsNEW from './components/ProductNew';
+
 
 
 
@@ -60,6 +60,8 @@ function App() {
     } 
 
     };
+  
+
 
   return (
     <div >
@@ -92,6 +94,10 @@ function App() {
         {/*  <Route path="/catalogueItems" render={(props) => (<CatalogueItems {...props} catid="1" />)} /> */}
         {/*  <Route path='/learningpathway' component={Learningpathway} /> */}
       </Router>
+      
+      
+      
+      
     </div> 
     
   );
