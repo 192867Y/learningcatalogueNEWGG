@@ -9,6 +9,7 @@ import Test from './components/NavBar/test';
 import LearningPathway from './components/LearningPathway/learningPathway';
 import LearningPathway2 from './components/LearningPathway/learningPathway2';
 import PathwayDetails from './components/LearningPathway/pathwayDetails';
+import courseDB from './components/LearningPathway/courseDB';
 import CourseDetails from './components/courseDetails';
 import Cart from './components/cart';
 import data from './data';
@@ -76,7 +77,7 @@ function App() {
             <Route path='/learningpathway2' component={LearningPathway2} />
             <Route path='/courseDetail' component={CourseDetails} />
             <Route path='/cart' component={Cart} />
-            
+            <Route path='/courseDB' component={courseDB} />
             <Route path="/products/:id" component={ProductsNEW} />
             
 
