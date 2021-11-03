@@ -4,7 +4,7 @@ import SearchBar from '../NavBar/searchBar';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 import axios from 'axios';
-import courseDB from './courseDB';
+
 
 
 const style = {
@@ -31,6 +31,7 @@ function LearningPathway(props) {
             console.log(error);
           });
         }
+        
   
 
     return (
@@ -42,6 +43,9 @@ function LearningPathway(props) {
             <hr /> 
             <Link to ="/courseDB" >
             <Button> Dynamo Database Test </Button>
+            </Link>
+            <Link to ="/searchGG" >
+            <Button> Search Bar Test </Button>
             </Link>
             <hr />
             <h2 style={style}> Learning Pathway </h2>

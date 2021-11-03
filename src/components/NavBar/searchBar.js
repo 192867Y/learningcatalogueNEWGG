@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { Button } from 'reactstrap';
 import Navbar from 'react-bootstrap/Navbar'
 import FormControl from 'react-bootstrap/FormControl'
@@ -10,7 +10,46 @@ import CatalogueItems from './catalogueItems'
 import { Accordion, Card } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import Subcategory from './subcategory'
+import TextField from '@mui/material/TextField';
 
+import Autocomplete from '@mui/material/Autocomplete';
+import { getStocks, matchStocks } from './dataSearch';
+import './Search.css';
+
+
+class searchGG extends Component {
+
+    state = { value: '' };
+  
+    render() {
+      return (
+        <div style = {{ marginTop: 40, marginLeft: 50 }}>
+          <Autocomplete
+            value={ this.state.value }
+            inputProps={{ id: 'states-autocomplete' }}
+            wrapperStyle={{ position: 'relative', display: 'inline-block' }}
+            items={ getStocks() }
+            getItemValue={ item => item.name }
+            shouldItemRender={ matchStocks }
+            onChange={(event, value) => this.setState({ value }) }
+            onSelect={ value => this.setState({ value }) }
+            renderMenu={ children => (
+              <div className = "menu">
+                { children }
+              </div>
+            )}
+            renderItem={ (item, isHighlighted) => (
+              <div
+                className={`item ${isHighlighted ? 'item-highlighted' : ''}`}
+                key={ item.abbr } >
+                { item.name }
+              </div>
+            )}
+          />
+        </div>
+        );
+      }
+    }
 
 const course = [
     {
@@ -22,6 +61,18 @@ const course = [
         coursename: 'Theory of Biology'
     },
 ]
+
+
+
+const dataSearchGG = [
+    { label: 'MyCare: Designing Human-Centered Care Toolkit', year: 1994 },
+    { label: 'MyCare: Effective Job Training with Job Instruction (JI)', year: 1972 },
+    { label: 'MyCare: The Ant of Standardized Work (SW) for Consistency', year: 1974 },
+    { label: 'MyCare: Introduction to Design Thinking', year: 2008 },
+    { label: 'MyCare: Start and Sustain the Environment', year: 1957 },
+    { label: "Identifying Waste and Polution in the City", year: 1993 }
+  ];
+  
 
 function SearchBar() {
     const [id, setId] = useState("");
@@ -37,10 +88,29 @@ function SearchBar() {
         setClick(true);
     }
 
+    
+
     return (
         <div>
+            <Autocomplete
+                freeSolo
+                id="free-solo-2-demo"
+                disableClearable
+                options={dataSearchGG.map((option) => option.label)}
+                renderInput={(params) => (
+                    <TextField
+                        {...params}
+                        label="Search for courses by keyword(s)"
+                        InputProps={{
+                            ...params.InputProps,
+                            type: 'search',
+                        }}
+                    />
+                )}
+            />           
+            
 
-            <Form className="d-flex">
+            {/* <Form className="d-flex">
                 <FormControl
                     type="search"
                     allowClear
@@ -49,8 +119,12 @@ function SearchBar() {
                     aria-label="Search"
                 />
             <Button background-color= '#597ef7' variant="outline-success">Search</Button>
-            </Form>
+                    </Form> */}
 
+            
+            { searchGG }
+
+            <searchGG />
 
             {click ? < Subcategory catid={id} callfrm={callfrm} /> :
                 <Accordion>
@@ -77,6 +151,7 @@ function SearchBar() {
                         </Accordion.Collapse>
                     </Card>
                 </Accordion>}
+ 
             
         </div >
     );

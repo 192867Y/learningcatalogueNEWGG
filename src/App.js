@@ -14,7 +14,7 @@ import Cart from './components/cart';
 import data from './data';
 import ProductContext from './contexts/ProductContext';
 import CardContext from './contexts/CartContext';
-
+import searchGG from './components/NavBar/Search'
 import ProductsNEW from './components/ProductNew';
 
 
@@ -80,6 +80,7 @@ function App() {
             <Route path='/courseDetail' component={CourseDetails} />
             <Route path='/cart' component={Cart} />
             <Route path='/courseDB' component={courseDB} />
+            <Route path='/searchGG' component={searchGG} />
             <Route path="/products/:id" component={ProductsNEW} />
             
 
