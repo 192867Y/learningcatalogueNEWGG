@@ -57,6 +57,8 @@ class courseDB extends Component {
 
 
 							<p style = {style3}> 
+							
+							<b> Image: </b> <img src = {item.image} /> <br /><br />
       						<b> Course Code: </b> {item.courseCode} <br /><br />
       						<b> Clinical/Non-Clinical: </b> {item.clinicalType} <br /><br />
       						<b> Course Overview: </b> {item.courseOverview} <br /><br />

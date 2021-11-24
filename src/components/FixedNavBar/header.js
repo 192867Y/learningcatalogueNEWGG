@@ -56,7 +56,7 @@ function Header() {
                 
 
             </Navbar>
-            <hr />
+            <br />
         </div>
 
         /*  <div>
